@@ -36,9 +36,9 @@ body {
 .signup_container {
   display: flex;
   flex-direction: column;
-  width: 60vw;
-  max-width: 500px;
-  margin: 2rem auto;
+  width: 30vw;
+  max-width: 400px;
+  margin: 20rem auto;
   padding: 2rem;
   background: var(--white);
   border-radius: var(--border-radius);
@@ -277,7 +277,7 @@ button:disabled {
 
 /* ===== PRODUCT DETAILS ===== */
 .product-details {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 2rem;
   background: var(--white);

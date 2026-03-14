@@ -1,37 +1,79 @@
-import React, { useState } from 'react'
-import Navbar from '../components/Navbar/Navbar'
-import { Register } from '../services/UserServices'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+// pages/SignUp.js
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar/Navbar';
+import './Signup.css';  // ✅ استعمل الاسم الموجود (u صغير)
 
+function SignUp() {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    name: ''
+  });
 
-function Signup() {
-  const [email, setemail] = useState("")
-  const [password, setpassword] = useState("")
-  const [name, setname] = useState("")
-  const dispatch=useDispatch()
-  const navigate=useNavigate()
-   const err=useSelector(state=>state.user.error)
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
-  const handleSubmit=(e)=>{
-    e.preventDefault()
-    Register({email,password,name},navigate,dispatch)
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Sign Up:', formData);
+    navigate('/login');
+  };
+
   return (
-    <div>
-         <Navbar/>
-         <form className='signup_container' onSubmit={handleSubmit} >
-            <label>email</label>
-            <input  onChange={(e)=>setemail(e.target.value)}/>
-            <label>password</label>
-            <input type='password' onChange={(e)=>setpassword(e.target.value)}/>
-            <label>name</label>
-            <input   onChange={(e)=>setname(e.target.value)}/>
-            {err?<p className='err'>{err.msg}</p>:null}
-            <button  type='submit' className='btn'>Register</button>
-         </form>
-        </div>
-  )
+    <div className="signup-page">
+      <Navbar />
+      <div className="signup-container">
+        <h1 className="signup-title">CMT Tech</h1>
+        <form onSubmit={handleSubmit} className="signup-form">
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          
+          <div className="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+          
+          <button type="submit" className="signup-btn">
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
 
-export default Signup
+export default SignUp;

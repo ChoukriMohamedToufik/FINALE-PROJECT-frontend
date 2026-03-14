@@ -1,0 +1,75 @@
+/* pages/Login.css */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #07080a 0%, #020102 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;        /* توسيط عمودي */
+  justify-content: center;     /* توسيط أفقي */
+}
+
+.login-container {
+  max-width: 400px;
+  width: 90%;                  /* للشاشات الصغيرة */
+  margin: 0 auto;              /* توسيط أفقي إضافي */
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.login-title {
+  color: #000000;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #000000;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;      /* عشان الـ padding ما يأثرش على العرض */
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #000103;
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #667eea 0%, #06000c 100%);
+  color: rgb(187, 162, 162);
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 100%;                 /* نفس عرض الحقول */
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+}

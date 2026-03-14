@@ -1,8 +1,102 @@
-/* Cardlist.css */
-.products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+/* components/Cardlist/Cardlist.css */
+
+/* ===== شريط البحث ===== */
+.search-bar-container {
+  background: rgba(15, 25, 35, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  border-radius: 50px;
+  padding: 8px 15px;
+  margin: 15px auto 30px;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ===== أيقونة البحث ===== */
+.search-icon {
+  color: #00ff9d;
+  font-size: 1.3rem;
+  margin-left: 5px;
+  flex-shrink: 0;  /* ✅ تمنع الأيقونة من التصغير */
+  width: 30px;
+  text-align: center;
+}
+
+/* ===== حقل البحث (ياخد أكبر مساحة) ===== */
+.search-input {
+  flex: 1 1 auto;      /* ✅ ينمو ويملأ المساحة الفارغة */
+  min-width: 250px;    /* ✅ عرض أدنى مناسب */
+  background: transparent;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* ===== قائمة الفئات (عرض ثابت مناسب) ===== */
+.filter-select {
+  flex: 0 0 auto;      /* ✅ لا ينمو ولا ينكمش */
+  width: 170px;        /* ✅ عرض ثابت مناسب */
+  background: rgba(0, 20, 30, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 8px 12px 8px 30px;
+  color: #e0e0e0;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2300ff9d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 10px center;
+  background-size: 14px;
+}
+
+/* ===== زر إعادة التعيين (عرض ثابت مناسب) ===== */
+.reset-btn {
+  flex: 0 0 auto;      /* ✅ لا ينمو ولا ينكمش */
+  width: 120px;        /* ✅ عرض ثابت مناسب */
+  background: linear-gradient(135deg, rgba(108, 0, 255, 0.2), rgba(0, 255, 157, 0.2));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  padding: 8px 12px;
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ===== تحسينات للهاتف ===== */
+@media (max-width: 768px) {
+  .search-bar-container {
+    flex-direction: column;
+    padding: 15px;
+    gap: 12px;
+  }
+  
+  .search-icon {
+    display: none;
+  }
+  
+  .search-input {
+    width: 100%;
+    min-width: 100%;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 25px;
+  }
+  
+  .filter-select {
+    width: 100%;
+    padding: 10px 15px 10px 35px;
+  }
+  
+  .reset-btn {
+    width: 100%;
+  }
 }
