@@ -1,0 +1,77 @@
+/* Card.css */
+.product-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 300px;
+    margin: 15px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.product-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.price {
+    color: #667eea;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-details, .btn-edit {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn-details {
+    background: #667eea;
+    color: white;
+}
+
+.btn-details:hover {
+    background: #5a67d8;
+}
+
+.btn-edit {
+    background: #48bb78;
+    color: white;
+}
+
+.btn-edit:hover {
+    background: #38a169;
+}
