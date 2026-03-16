@@ -1,4 +1,4 @@
-/* pages/Home.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -184,19 +184,28 @@ body {
   box-shadow: var(--tech-glow);
 }
 
+.filter-select:focus {
+  outline: none;
+  border-color: #6c00ff;
+  box-shadow: 0 0 0 3px rgba(108, 0, 255, 0.3);
+}
+
 .reset-btn {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 30px;
-  padding: 10px 25px;
+  padding: 8px 18px;
   color: white;
   font-family: 'Rajdhani', sans-serif;
   font-weight: 600;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .reset-btn::before {
@@ -207,7 +216,7 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
+  transition: left 0.6s ease;
 }
 
 .reset-btn:hover::before {
@@ -215,9 +224,15 @@ body {
 }
 
 .reset-btn:hover {
-  border-color: var(--terminal-green);
-  box-shadow: var(--tech-glow);
+  background: linear-gradient(135deg, #6c00ff, #00ff9d);
+  border-color: transparent;
+  box-shadow: 0 0 25px rgba(0, 255, 157, 0.5);
   transform: scale(1.05);
+  color: white;
+}
+
+.reset-btn:active {
+  transform: scale(0.98);
 }
 
 /* ===== معلومات النتائج ===== */
@@ -290,6 +305,24 @@ body {
   background: linear-gradient(to top, var(--glass-bg), transparent);
 }
 
+.product-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 255, 157, 0.2), rgba(108, 0, 255, 0.2));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.product-card:hover .product-image::before {
+  opacity: 1;
+}
+
 .product-image img {
   width: 100%;
   height: 100%;
@@ -314,6 +347,38 @@ body {
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
 
+.product-info h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: #00ff9d;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px #00ff9d;
+}
+
+.product-card:hover .product-info h3::after {
+  width: 80px;
+}
+
+.product-description {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 15px 0 10px;
+  font-family: 'Rajdhani', sans-serif;
+  border-left: 2px solid #00ff9d;
+  padding-left: 12px;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .product-description {
+  color: #d0d0d0;
+  border-left-color: #6c00ff;
+}
+
 .price {
   font-size: 1.5rem;
   font-weight: bold;
@@ -326,6 +391,27 @@ body {
   padding: 5px 15px;
   border: var(--tech-border);
   border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.price::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00ff9d, #6c00ff, #00ff9d);
+  border-radius: 22px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .price::before {
+  opacity: 0.5;
 }
 
 .card-actions {
@@ -336,7 +422,7 @@ body {
 
 .card-actions button {
   flex: 1;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.4);
   border: var(--tech-border);
   border-radius: 25px;
   padding: 10px;
@@ -348,13 +434,52 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
 }
 
-.card-actions button:hover {
-  background: var(--tech-gradient);
-  border-color: transparent;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-  transform: scale(1.05);
+.card-actions button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.card-actions button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.card-actions button:first-child {
+  background: linear-gradient(135deg, #00ff9d, #00b8ff);
+  border: none;
+  color: #0a0a0f;
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+}
+
+.card-actions button:first-child:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 255, 157, 0.5);
+}
+
+.card-actions button:last-child {
+  background: rgba(108, 0, 255, 0.2);
+  border-color: rgba(108, 0, 255, 0.5);
+}
+
+.card-actions button:last-child:hover {
+  background: rgba(108, 0, 255, 0.4);
+  border-color: #6c00ff;
+  box-shadow: 0 0 20px rgba(108, 0, 255, 0.4);
+  color: white;
 }
 
 /* ===== رسالة عدم وجود نتائج ===== */
@@ -384,12 +509,35 @@ body {
   color: rgba(0, 255, 255, 0.1);
   white-space: nowrap;
   z-index: -1;
+  animation: float 4s ease-in-out infinite;
 }
 
-/* ===== تأثيرات حركية إضافية ===== */
+.no-products::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 157, 0.1) 0%, transparent 70%);
+  animation: rotate 10s linear infinite;
+  z-index: -2;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== تأثير سكان لاين ===== */
 @keyframes scanLine {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .scan-effect {
@@ -403,13 +551,20 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 2px;
-  background: rgba(0, 255, 255, 0.5);
-  animation: scanLine 3s linear infinite;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+  animation: scanLine 2s linear infinite;
   pointer-events: none;
+  z-index: 5;
 }
 
 /* ===== التجاوب مع الشاشات الصغيرة ===== */
+@media (max-width: 968px) {
+  .hero-section h1 {
+    font-size: 4rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-section h1 {
     font-size: 3rem;
@@ -422,7 +577,7 @@ body {
   .search-bar-container {
     flex-direction: column;
     border-radius: 30px;
-    padding: 20px;
+    padding: 15px;
   }
   
   .search-icon {
@@ -433,7 +588,65 @@ body {
     width: 100%;
   }
   
+  .filter-select {
+    padding: 10px 15px 10px 35px;
+  }
+  
   .products-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .product-image {
+    height: 180px;
+  }
+  
+  .product-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .price {
+    font-size: 1.3rem;
+  }
+  
+  .no-products {
+    padding: 40px 20px;
+    font-size: 1.1rem;
+  }
+  
+  .no-products::before {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-section p {
+    font-size: 1rem;
+  }
+  
+  .search-bar-container {
+    padding: 12px;
+  }
+  
+  .product-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .price {
+    font-size: 1.2rem;
+    padding: 4px 10px;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .card-actions button {
+    width: 100%;
   }
 }

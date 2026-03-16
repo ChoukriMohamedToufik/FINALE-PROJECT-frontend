@@ -1,8 +1,8 @@
-// pages/SignUp.js
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
-import './Signup.css';  // ✅ استعمل الاسم الموجود (u صغير)
+import './Signup.css';  
 
 function SignUp() {
   const navigate = useNavigate();

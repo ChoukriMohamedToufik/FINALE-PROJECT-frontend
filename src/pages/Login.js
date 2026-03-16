@@ -1,8 +1,8 @@
-// pages/Login.js
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
-import './Login.css';  // ✅ استيراد التصميم الجديد
+import './Login.css';  //  استيراد التصميم الجديد
 
 function Login() {
   const navigate = useNavigate();

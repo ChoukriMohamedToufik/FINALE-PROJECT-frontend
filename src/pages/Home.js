@@ -1,4 +1,4 @@
-// pages/Home.js
+
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Navbar from '../components/Navbar/Navbar';
@@ -16,20 +16,20 @@ function Home() {
 
   return (
     <div className="home-container">
+      {/* فيديو الخلفية */}
       <div className="video-background">
         <video autoPlay loop muted playsInline>
           <source src={backgroundVideo} type="video/mp4" />
         </video>
       </div>
 
+      {/* المحتوى فوق الفيديو */}
       <div className="content-overlay">
         <Navbar />
         <div className="hero-section">
           <h1>CMT Tech</h1>
           <p>Your PC Hardware Store</p>
         </div>
-        
-        {/* ✅ Cardlist يدير البحث والتصفية بنفسه الآن */}
         <Cardlist />
       </div>
     </div>

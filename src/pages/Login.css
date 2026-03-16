@@ -1,4 +1,4 @@
-/* pages/Login.css */
+
 .login-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #07080a 0%, #020102 100%);
@@ -72,4 +72,26 @@
 
 .login-btn:hover {
   transform: translateY(-2px);
+}
+/* ===== تحسين وضوح النصوص ===== */
+.login-container label,
+.signup-container label,
+.form-group label {
+  color: #000000 !important;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.login-container input,
+.signup-container input,
+.form-group input {
+  color: #000000 !important;
+  background: white !important;
+  border: 1px solid #ddd !important;
+}
+
+.login-container input::placeholder,
+.signup-container input::placeholder,
+.form-group input::placeholder {
+  color: #999 !important;
 }

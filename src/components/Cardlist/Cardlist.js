@@ -1,4 +1,4 @@
-// components/Cardlist/Cardlist.js
+
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../Card/Card';

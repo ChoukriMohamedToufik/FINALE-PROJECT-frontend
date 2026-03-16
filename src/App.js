@@ -1,4 +1,4 @@
-// App.js
+
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import Details from './pages/Details';
 import EditProduct from './pages/EditProduct';
 import Cart from './pages/Cart';
+import About from './pages/About';
 
 // الحماية
 import PrivateRoutes from './pages/privateRoutes';
@@ -26,10 +27,11 @@ function App() {
         <Route path='/register' element={<PublicRoutes><Signup /></PublicRoutes>} />
         
         <Route path='/dashboard' element={<PrivateRoutes><Dashboard /></PrivateRoutes>} />
-        <Route path='/details/:id' element={<PrivateRoutes><Details /></PrivateRoutes>} />
+        <Route path='/details/:id' element={<Details />} /> {/* ✅ تعديل هنا */}
         <Route path='/edit/:id' element={<PrivateRoutes><EditProduct /></PrivateRoutes>} />
         
         <Route path='/cart' element={<Cart />} />
+        <Route path='/about' element={<About />} />
       </Routes>
     </div>
   );

@@ -1,17 +1,17 @@
-/* pages/Signup.css */
+
 .signup-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #07080a 0%, #020102 100%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
-  align-items: center;        /* ✅ توسيط عمودي */
-  justify-content: center;     /* ✅ توسيط أفقي */
+  align-items: center;        
+  justify-content: center;     
 }
 
 .signup-container {
   max-width: 400px;
-  width: 90%;                  /* ✅ للشاشات الصغيرة */
-  margin: 0 auto;              /* ✅ توسيط أفقي إضافي */
+  width: 90%;                 
+  margin: 0 auto;             
   padding: 30px 20px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
@@ -49,7 +49,7 @@
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
-  box-sizing: border-box;      /* ✅ عشان الـ padding ما يأثرش على العرض */
+  box-sizing: border-box;      
 }
 
 .form-group input:focus {
@@ -67,7 +67,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s ease;
-  width: 100%;                 /* ✅ نفس عرض الحقول */
+  width: 100%;                
 }
 
 .signup-btn:hover {

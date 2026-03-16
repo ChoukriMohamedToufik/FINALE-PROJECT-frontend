@@ -14,17 +14,20 @@ export const GetProducts = async (dispatch) => {
   }
 };
 
-// ✅ جلب منتج واحد
+// ✅ جلب منتج واحد (مرة واحدة فقط)
 export const GetoneProduct = async (id, dispatch) => {
   try {
+    console.log('🔍 جلب المنتج من API:', `${baseUrl}/product/${id}`);
     const token = localStorage.getItem('token');
     const res = await axios.get(`${baseUrl}/product/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
+    console.log('✅ المنتج المستلم:', res.data);
     dispatch(getoneproduct(res?.data));
     return res.data;
   } catch (err) {
-    console.log("Error fetching product:", err);
+    console.log("❌ خطأ في جلب المنتج:", err);
+    console.log("🔴 تفاصيل الخطأ:", err.response?.data);
     throw err;
   }
 };

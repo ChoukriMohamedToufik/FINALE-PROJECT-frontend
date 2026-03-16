@@ -1,4 +1,4 @@
-// components/Navbar/Navbar.js
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -84,6 +84,15 @@ function Navbar() {
           >
             <span className="nav-icon">📊</span>
             لوحة التحكم
+          </button>
+
+          {/* ✅ زر من نحن (جديد) */}
+          <button 
+            className="nav-link" 
+            onClick={() => handleNavigation('about')}
+          >
+            <span className="nav-icon">ℹ️</span>
+            من نحن
           </button>
 
           {/* أيقونة السلة مع العداد */}
