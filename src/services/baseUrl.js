@@ -1,1 +1,3 @@
-export const baseUrl="https://finale-project-backend.vercel.app"
+
+export const baseUrl = "https://back-end-nu-ten.vercel.app";
+export default baseUrl;
