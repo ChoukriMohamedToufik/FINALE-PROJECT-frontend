@@ -1,13 +1,14 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';  // ✅ أضف useSelector
 import { Logout, emptyError } from '../../redux/user';
 import './nav.css';
 
 function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { isAdmin } = useSelector((state) => state.user);  // ✅ جيب isAdmin من Redux
+  
   const [cartCount, setCartCount] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -78,15 +79,17 @@ function Navbar() {
             الرئيسية
           </button>
 
-          <button 
-            className="nav-link" 
-            onClick={() => handleNavigation('dashboard')}
-          >
-            <span className="nav-icon">📊</span>
-            لوحة التحكم
-          </button>
+          {/* ✅ Dashboard يظهر فقط للـ admin */}
+          {isAdmin && (
+            <button 
+              className="nav-link" 
+              onClick={() => handleNavigation('dashboard')}
+            >
+              <span className="nav-icon">📊</span>
+              لوحة التحكم
+            </button>
+          )}
 
-          {/* ✅ زر من نحن (جديد) */}
           <button 
             className="nav-link" 
             onClick={() => handleNavigation('about')}

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -16,6 +15,7 @@ import About from './pages/About';
 // الحماية
 import PrivateRoutes from './pages/privateRoutes';
 import PublicRoutes from './pages/PublicRoutes';
+import AdminRoutes from './pages/AdminRoutes';  // ✅ استيراد AdminRoutes
 
 function App() {
   return (
@@ -26,8 +26,10 @@ function App() {
         <Route path='/login' element={<PublicRoutes><Login /></PublicRoutes>} />
         <Route path='/register' element={<PublicRoutes><Signup /></PublicRoutes>} />
         
-        <Route path='/dashboard' element={<PrivateRoutes><Dashboard /></PrivateRoutes>} />
-        <Route path='/details/:id' element={<Details />} /> {/* ✅ تعديل هنا */}
+        {/* ✅ Dashboard الآن فقط للـ admin */}
+        <Route path='/dashboard' element={<AdminRoutes><Dashboard /></AdminRoutes>} />
+        
+        <Route path='/details/:id' element={<Details />} />
         <Route path='/edit/:id' element={<PrivateRoutes><EditProduct /></PrivateRoutes>} />
         
         <Route path='/cart' element={<Cart />} />

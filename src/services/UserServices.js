@@ -50,3 +50,15 @@ export const Register = async (data, navigate, dispatch) => {
     dispatch(catchError(err.response?.data));
   }
 };
+
+export const LoginService = async (data, dispatch, navigate) => {
+  try {
+    const res = await axios.post(`${baseUrl}/user/login`, data);
+    localStorage.setItem("token", res.data.token);
+    await GetCurrentUser(dispatch);  // ✅ هذا يجيب المستخدم ويحدث isAdmin
+    navigate("/");
+    dispatch(emptyError());
+  } catch (err) {
+    dispatch(catchError(err.response?.data));
+  }
+};
